@@ -1,6 +1,7 @@
 package med.voll.api.controller;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import med.voll.api.medico.DadosCadastrosMedicos;
 import med.voll.api.medico.MedicoEntity;
 import med.voll.api.medico.MedicoRepository;
@@ -17,7 +18,7 @@ public class MedicoController {
     private MedicoRepository medicoRepository;
     @PostMapping
     @Transactional
-    public void cadastroMedicos(@RequestBody DadosCadastrosMedicos dadosMedicos) {
+    public void cadastroMedicos(@RequestBody @Valid DadosCadastrosMedicos dadosMedicos) {
         medicoRepository.save(new MedicoEntity(dadosMedicos));
     }
 }
