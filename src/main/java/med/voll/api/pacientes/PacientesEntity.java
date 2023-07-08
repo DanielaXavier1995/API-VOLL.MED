@@ -10,7 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.endereco.DadosEndereco;
 import med.voll.api.endereco.Endereco;
 
 @Entity
@@ -35,5 +34,16 @@ public class PacientesEntity {
           this.telefone = dadosPacientes.telefone();
           this.cpf = dadosPacientes.cpf();
           this.endereco = new Endereco(dadosPacientes.endereco());
+    }
+    public void atualizarInformacoes(DadosAtualizacaoPacientes dadosPacientes) {
+        if (dadosPacientes.nome() != null) {
+            this.nome = dadosPacientes.nome();
+        }
+        if (dadosPacientes.telefone() != null) {
+            this.telefone = dadosPacientes.telefone();
+        }
+        if (dadosPacientes.endereco() != null) {
+            this.endereco.atualizarInformacoes(dadosPacientes.endereco());
+        }
     }
 }
