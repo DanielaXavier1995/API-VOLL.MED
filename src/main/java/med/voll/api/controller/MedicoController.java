@@ -29,7 +29,7 @@ public class MedicoController {
         medicoRepository.save(new MedicoEntity(dadosMedicos));
     }
     @GetMapping
-    public Page<DadosListagemMedico> listarMedicos(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
+    public Page<DadosListagemMedico> listarMedicos(Pageable paginacao) {
       return medicoRepository.findAll(paginacao).map(DadosListagemMedico::new);
     }
 }
