@@ -2,16 +2,15 @@ package med.voll.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import med.voll.api.medico.DadosAtualizacaoMedicos;
-import med.voll.api.medico.DadosCadastrosMedicos;
-import med.voll.api.medico.DadosDetalhamentoMedico;
-import med.voll.api.medico.DadosListagemMedico;
-import med.voll.api.medico.MedicoEntity;
-import med.voll.api.medico.MedicoRepository;
+import med.voll.api.domain.medico.DadosAtualizacaoMedicos;
+import med.voll.api.domain.medico.DadosCadastrosMedicos;
+import med.voll.api.domain.medico.DadosDetalhamentoMedico;
+import med.voll.api.domain.medico.DadosListagemMedico;
+import med.voll.api.domain.medico.MedicoEntity;
+import med.voll.api.domain.medico.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.List;
 @RestController
 @RequestMapping("medicos")
 public class MedicoController {
