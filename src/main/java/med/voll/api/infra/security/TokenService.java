@@ -3,6 +3,7 @@ package med.voll.api.infra.security;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import med.voll.api.domain.usuario.UsuarioEntity;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,20 @@ public class TokenService {
                     .sign(algoritmo); //Assinatura
         } catch (JWTCreationException exception){
             throw new RuntimeException("erro ao gerar token JWT", exception);
+        }
+    }
+
+    public String getSubject(String tokenJWT) {
+        try {
+            var algoritmo = Algorithm.HMAC256(secret);
+            return JWT.require(algoritmo)
+                    .withIssuer("API Voll.med")
+                    .build()
+                    .verify((tokenJWT)) //Verificar se o token está válido de acordo com o algorítmo e o Issuer
+                    //Se o bloco acima estiver Ok continua a execução(linha 39), caso contrário lança uma exception (linha 42);
+                    .getSubject(); //Recupera o login
+        } catch (JWTVerificationException exception){
+            throw new RuntimeException("Token JWT inválido ou expirado!");
         }
     }
     private Instant dataExpiracao() {
