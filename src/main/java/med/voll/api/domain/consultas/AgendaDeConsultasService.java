@@ -49,6 +49,6 @@ public class AgendaDeConsultasService {
         }
 
         //Montar Query no Repository filtrando médicos pela data e pela especialidade
-        return medicoRepository.medicoAleatório(dados.especialidade(), dados.data());
+        return medicoRepository.medicoAleatorio(dados.especialidade(), dados.data());
     }
 }

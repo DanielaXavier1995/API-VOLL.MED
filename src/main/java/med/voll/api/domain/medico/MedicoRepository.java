@@ -22,5 +22,5 @@ public interface MedicoRepository extends JpaRepository<MedicoEntity, Long> {
             ORDER BY rand()
             LIMIT 1
             """)
-    MedicoEntity medicoAleatório(Especialidade especialidade, LocalDateTime data);
+    MedicoEntity medicoAleatorio(Especialidade especialidade, LocalDateTime data);
 }
