@@ -28,6 +28,8 @@ public class PacientesEntity {
     private String cpf;
     @Embedded
     private Endereco endereco;
+    private boolean ativo;
+
     public PacientesEntity(DadosCadastrosPacientes dadosPacientes) {
           this.nome = dadosPacientes.nome();
           this.email = dadosPacientes.email();
@@ -46,4 +48,6 @@ public class PacientesEntity {
             this.endereco.atualizarInformacoes(dadosPacientes.endereco());
         }
     }
+    
+    public void excluir() {this.ativo = false;}
 }
