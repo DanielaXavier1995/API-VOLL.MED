@@ -1,6 +1,7 @@
 package med.voll.api.domain.consultas;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 

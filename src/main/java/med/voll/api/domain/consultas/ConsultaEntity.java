@@ -33,5 +33,6 @@ public class ConsultaEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "paciente_id")
     private PacientesEntity idPaciente;
-    LocalDateTime data;
+    private LocalDateTime data;
 }
+

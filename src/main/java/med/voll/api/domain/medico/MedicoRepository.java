@@ -9,12 +9,12 @@ import java.time.LocalDateTime;
 public interface MedicoRepository extends JpaRepository<MedicoEntity, Long> {
     Page<MedicoEntity> findAllByAtivoTrue(Pageable paginacao);
     @Query("""
-            SELECT m FROM medicos m
+            SELECT m FROM MedicoEntity m
             WHERE
-            m.ativo = 1
+            m.ativo = true
             AND
             m.id not in
-               (SELECT c.medico_id FROM consultas c
+               (SELECT c.idMedico FROM ConsultaEntity c
                WHERE
                c.data = :data) 
             AND

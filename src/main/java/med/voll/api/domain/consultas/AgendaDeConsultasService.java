@@ -6,6 +6,8 @@ import med.voll.api.domain.pacientes.PacientesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+
 @Service
 public class AgendaDeConsultasService {
     @Autowired
@@ -48,7 +50,7 @@ public class AgendaDeConsultasService {
                     " é necessário informar a especialidade!!");
         }
 
-        //Montar Query no Repository filtrando médicos pela data e pela especialidade
+        //Montar Query no Repository filtrando médicos data e pela especialidade
         return medicoRepository.medicoAleatorio(dados.especialidade(), dados.data());
     }
 }
