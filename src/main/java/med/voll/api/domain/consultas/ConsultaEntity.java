@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 public class ConsultaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idConsulta;
+    private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medico_id")
     private MedicoEntity idMedico;
