@@ -27,6 +27,7 @@ public class SecurityConfigurations {
                 .and().authorizeHttpRequests()
                 //Configuração para que a requisição de login sempre seja autorizada:
                 .requestMatchers(HttpMethod.POST, "/login").permitAll() //request publica
+                .requestMatchers( "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
                 .anyRequest().authenticated() //qualquer outra request precisa ser autenticada
                 //Configurando a ordem de chamada do filtros
                 //Primeiro executa o filtro de autenticação(SecurityFilter), depois o filtro nativo do Spring (UsernamePasswordAuthenticationFilter.class) que verifica se o usuário está logado
