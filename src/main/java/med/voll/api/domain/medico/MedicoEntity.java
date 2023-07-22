@@ -33,7 +33,7 @@ public class MedicoEntity {
     @Embedded
     private Endereco endereco;
     private Boolean ativo;
-    public MedicoEntity(DadosCadastrosMedicos dadosMedicos) {
+    public MedicoEntity(DadosCadastroMedico dadosMedicos) {
         this.ativo = true;
         this.nome = dadosMedicos.nome();
         this.email = dadosMedicos.email();

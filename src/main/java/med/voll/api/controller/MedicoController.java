@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.voll.api.domain.medico.DadosAtualizacaoMedicos;
-import med.voll.api.domain.medico.DadosCadastrosMedicos;
+import med.voll.api.domain.medico.DadosCadastroMedico;
 import med.voll.api.domain.medico.DadosDetalhamentoMedico;
 import med.voll.api.domain.medico.DadosListagemMedico;
 import med.voll.api.domain.medico.MedicoEntity;
@@ -31,7 +31,7 @@ public class MedicoController {
     private MedicoRepository medicoRepository;
     @PostMapping
     @Transactional
-    public ResponseEntity cadastroMedicos(@RequestBody @Valid DadosCadastrosMedicos dadosMedicos, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity cadastroMedicos(@RequestBody @Valid DadosCadastroMedico dadosMedicos, UriComponentsBuilder uriBuilder) {
 
         var medico = new MedicoEntity(dadosMedicos);
 

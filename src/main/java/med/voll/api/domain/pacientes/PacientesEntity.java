@@ -30,7 +30,7 @@ public class PacientesEntity {
     private Endereco endereco;
     private Boolean ativo;
 
-    public PacientesEntity(DadosCadastrosPacientes dadosPacientes) {
+    public PacientesEntity(DadosCadastroPaciente dadosPacientes) {
           this.ativo = true;
           this.nome = dadosPacientes.nome();
           this.email = dadosPacientes.email();

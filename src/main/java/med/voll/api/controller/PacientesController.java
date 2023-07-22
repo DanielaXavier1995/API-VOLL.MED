@@ -5,7 +5,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.voll.api.domain.medico.MedicoRepository;
 import med.voll.api.domain.pacientes.DadosAtualizacaoPacientes;
-import med.voll.api.domain.pacientes.DadosCadastrosPacientes;
+import med.voll.api.domain.pacientes.DadosCadastroPaciente;
 import med.voll.api.domain.pacientes.DadosDetalhamentoPacientes;
 import med.voll.api.domain.pacientes.DadosListagemPacientes;
 import med.voll.api.domain.pacientes.PacientesEntity;
@@ -36,7 +36,7 @@ public class PacientesController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity cadastroPacientes(@RequestBody @Valid DadosCadastrosPacientes dadosPacientes, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity cadastroPacientes(@RequestBody @Valid DadosCadastroPaciente dadosPacientes, UriComponentsBuilder uriBuilder) {
 
        var paciente = new PacientesEntity(dadosPacientes);
 
